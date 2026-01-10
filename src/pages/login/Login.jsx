@@ -3,12 +3,12 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { users } from "../../services/data";
-import { FaClock } from "react-icons/fa";
-import { PiLockFill } from "react-icons/pi";
+import { FaLock, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 function Login({ role, setRole }) {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [watchPassword, setWatchPassword] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -60,24 +60,37 @@ function Login({ role, setRole }) {
             <h1>Tizimga kirish</h1>
             <div className="login-forms_toFill">
               <label htmlFor="">Loginni kiriting:</label>
-              <input
-                value={login}
-                onChange={(e) => setLogin(e.target.value)}
-                placeholder="Login..."
-              />
+              <div className="form_inputs">
+                <input
+                  value={login}
+                  onChange={(e) => setLogin(e.target.value)}
+                  placeholder="Login..."
+                />
+              </div>
             </div>
-            <PiLockFill style={{color:"red"}} />
             <div className="login-forms_toFill">
               <label htmlFor="">Parolni kiriting:</label>
-              <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Parol..."
-                type="password"
-              />
+              <div className="form_inputs">
+                <span className="login-forms_toFill_locking">
+                  <FaLock />
+                </span>
+                <input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Parol..."
+                  type={watchPassword ? "text" : "password"}
+                />
+                <span
+                  className="form_inputs-eyes"
+                  onClick={() => {
+                    setWatchPassword((prev) => !prev);
+                  }}
+                >
+                  {watchPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                </span>
+              </div>
             </div>
             <button>Sign in</button>
-            <FaClock />
           </form>
         </div>
       </div>

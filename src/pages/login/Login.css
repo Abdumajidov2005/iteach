@@ -46,21 +46,50 @@
   gap: 10px;
 }
 
+.pages_login .pages_login-forms .login-forms_toFill .form_inputs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--color-white-F);
+  border-radius: 5px;
+  gap: 5px;
+}
+
+.pages_login .pages_login-forms .login-forms_toFill .form_inputs svg {
+  color: var(--color-white-F);
+  font-size: 22px;
+}
+
 .pages_login .pages_login-forms .login-forms_toFill label {
   font-size: var(--font-size-20);
   font-weight: var(--font-weight-500);
   color: var(--color-white-F);
 }
 
-.pages_login .pages_login-forms .login-forms_toFill input {
+.pages_login .pages_login-forms .login-forms_toFill .form_inputs input {
   width: 100%;
   padding: 10px 10px;
   border-radius: 6px;
   border: none;
   outline: none;
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-16);
   font-weight: var(--font-weight-500);
-  color: var(--color-blueD-main);
+  color: var(--color-white-F);
+  background-color: transparent;
+}
+
+.pages_login
+  .pages_login-forms
+  .login-forms_toFill
+  .form_inputs
+  .form_inputs-eyes {
+  padding: 0px 10px;
+  border-left: 1px solid var(--color-white-F);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pages_login .pages_login-forms button {
