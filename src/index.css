@@ -40,3 +40,9 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
+
+.displays_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

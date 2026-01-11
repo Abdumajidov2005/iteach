@@ -3,7 +3,7 @@ import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { users } from "../../services/data";
-import { FaLock, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { FaLock, FaRegEye, FaRegEyeSlash, FaUserAlt } from "react-icons/fa";
 
 function Login({ role, setRole }) {
   const [login, setLogin] = useState("");
@@ -59,29 +59,34 @@ function Login({ role, setRole }) {
           >
             <h1>Tizimga kirish</h1>
             <div className="login-forms_toFill">
-              <label htmlFor="">Loginni kiriting:</label>
+              <label htmlFor="logins">Loginni kiriting:</label>
               <div className="form_inputs">
+                <span className="login-forms_toFill_locking displays_center">
+                  <FaUserAlt />
+                </span>
                 <input
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
                   placeholder="Login..."
+                  id="logins"
                 />
               </div>
             </div>
             <div className="login-forms_toFill">
-              <label htmlFor="">Parolni kiriting:</label>
+              <label htmlFor="passwords">Parolni kiriting:</label>
               <div className="form_inputs">
-                <span className="login-forms_toFill_locking">
+                <span className="login-forms_toFill_locking displays_center">
                   <FaLock />
                 </span>
                 <input
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Parol..."
+                  id="passwords"
                   type={watchPassword ? "text" : "password"}
                 />
                 <span
-                  className="form_inputs-eyes"
+                  className="form_inputs-eyes displays_center"
                   onClick={() => {
                     setWatchPassword((prev) => !prev);
                   }}

@@ -32,7 +32,7 @@
 }
 
 .pages_login .pages_login-forms h1 {
-  font-size: var(--font-size-50);
+  font-size: var(--font-size-40);
   color: var(--color-white-F);
   letter-spacing: 1px;
   margin-bottom: 15px;
@@ -56,6 +56,16 @@
   gap: 5px;
 }
 
+.pages_login
+  .pages_login-forms
+  .login-forms_toFill
+  .form_inputs
+  .login-forms_toFill_locking {
+  display: block;
+  padding: 0px 10px;
+  border-right: 1px solid var(--color-white-F);
+}
+
 .pages_login .pages_login-forms .login-forms_toFill .form_inputs svg {
   color: var(--color-white-F);
   font-size: 22px;
@@ -65,11 +75,12 @@
   font-size: var(--font-size-20);
   font-weight: var(--font-weight-500);
   color: var(--color-white-F);
+  cursor: pointer;
 }
 
 .pages_login .pages_login-forms .login-forms_toFill .form_inputs input {
   width: 100%;
-  padding: 10px 10px;
+  padding: 10px;
   border-radius: 6px;
   border: none;
   outline: none;
@@ -87,9 +98,6 @@
   padding: 0px 10px;
   border-left: 1px solid var(--color-white-F);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .pages_login .pages_login-forms button {
@@ -97,8 +105,18 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-size: var(--font-size-16);
+  font-size: var(--font-size-18);
   font-weight: var(--font-weight-500);
   color: var(--color-blueD-main);
   letter-spacing: 1px;
+  text-transform: capitalize;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pages_login .pages_login-forms button:hover {
+  transform: translateY(-5px);
+}
+
+.pages_login .pages_login-forms button:active {
+  transform: translateY(5px);
 }
