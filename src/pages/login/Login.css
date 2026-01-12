@@ -1,5 +1,9 @@
 .pages_bg {
   background: conic-gradient(#080820 180deg, #fff 180deg);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
 }
 
 .pages_login {
@@ -24,7 +28,7 @@
 .pages_login .pages_login-forms {
   width: 500px;
   padding: 20px;
-  border: 1px solid var(--color-white-F);
+  border: 1px solid var(--color-white-FFF);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -33,7 +37,7 @@
 
 .pages_login .pages_login-forms h1 {
   font-size: var(--font-size-40);
-  color: var(--color-white-F);
+  color: var(--color-white-FFF);
   letter-spacing: 1px;
   margin-bottom: 15px;
   text-align: center;
@@ -51,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid var(--color-white-F);
+  border: 1px solid var(--color-white-FFF);
   border-radius: 5px;
   gap: 5px;
 }
@@ -63,18 +67,18 @@
   .login-forms_toFill_locking {
   display: block;
   padding: 0px 10px;
-  border-right: 1px solid var(--color-white-F);
+  border-right: 1px solid var(--color-white-FFF);
 }
 
 .pages_login .pages_login-forms .login-forms_toFill .form_inputs svg {
-  color: var(--color-white-F);
+  color: var(--color-white-FFF);
   font-size: 22px;
 }
 
 .pages_login .pages_login-forms .login-forms_toFill label {
   font-size: var(--font-size-20);
   font-weight: var(--font-weight-500);
-  color: var(--color-white-F);
+  color: var(--color-white-FFF);
   cursor: pointer;
 }
 
@@ -86,7 +90,7 @@
   outline: none;
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-500);
-  color: var(--color-white-F);
+  color: var(--color-white-FFF);
   background-color: transparent;
 }
 
@@ -96,7 +100,7 @@
   .form_inputs
   .form_inputs-eyes {
   padding: 0px 10px;
-  border-left: 1px solid var(--color-white-F);
+  border-left: 1px solid var(--color-white-FFF);
   cursor: pointer;
 }
 

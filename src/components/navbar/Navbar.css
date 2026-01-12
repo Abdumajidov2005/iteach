@@ -1,0 +1,30 @@
+.navbar_panel {
+  border-bottom: 1px solid var(--color-white-FFF-blur);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6.5px 0px;
+}
+
+.navbar_user-panel {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.user-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.user-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.navbar_user-panel h2 span {
+  display: block;
+}

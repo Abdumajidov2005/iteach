@@ -1,0 +1,109 @@
+.panel_sidebar {
+  width: 23%;
+  height: 100vh;
+  padding-left: 10px;
+  background-color: var(--color-blueD-main);
+  border-right: 1px solid rgba(255, 255, 255, 0.285);
+}
+
+.panel_sidebar .sidebar_logo {
+  width: 100%;
+  height: 60px;
+  margin: 15px 0px;
+}
+
+.panel_sidebar .sidebar_logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.panel_sidebar .panel_links {
+  padding: 10px 0px;
+  padding-right: 5px;
+  height: 560px;
+  overflow-y: scroll;
+  border-top: 1px solid rgba(255, 255, 255, 0.285);
+}
+
+.panel_sidebar .panel_links li {
+  color: var(--color-white-FFF);
+  width: 100%;
+  padding: 10px;
+  background-color: #00985b;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel_sidebar .panel_links li:hover {
+  background-color: #00985b4d;
+  backdrop-filter: blur(10px);
+}
+
+.panel_sidebar .panel_links li::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 0px;
+  height: 100%;
+  background-color: #00985b;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.panel_sidebar .panel_links li:hover::after {
+  width: 3px;
+}
+
+.panel_sidebar .panel_links li::before {
+  content: "";
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #00985b;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: scale(0);
+}
+
+.panel_sidebar .panel_links li:hover::before {
+  transform: scale(1);
+}
+
+.panel_darkMode {
+  width: 200px;
+  margin: 10px auto;
+  border: 1px solid var(--color-white-FFF);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.panel_darkMode span {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-white-FFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blueD-main);
+}
+
+.panel_darkMode span:nth-child(2) {
+  display: none;
+}
+
+.panel_darkMode h1 {
+  color: var(--color-white-FFF);
+  font-size: var(--font-size-18);
+}

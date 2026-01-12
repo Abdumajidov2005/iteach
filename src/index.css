@@ -27,8 +27,15 @@
   --font-weight-600: 600;
   --font-weight-700: 700;
   /* colors */
-  --color-white-F: #fff;
+  --color-white-FFF: #fff;
+  --color-white-FFF-blur: rgba(255, 255, 255, 0.285);
+  --color-white-FA: #f5f3f5;
   --color-blueD-main: #080820;
+  --color-blueD-main-blur: #080820eb;
+}
+
+body {
+  background-color: var(--color-blueD-main);
 }
 
 ul {
@@ -45,4 +52,34 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.main_panel {
+  display: flex;
+  align-items: start;
+}
+
+.panel_body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar umumiy o'lchami */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Scroll track */
+::-webkit-scrollbar-track {
+  background: #475569;
+}
+
+/* Scroll thumb */
+::-webkit-scrollbar-thumb {
+  background: #080820;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0f172a;
 }
