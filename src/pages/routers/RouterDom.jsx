@@ -27,7 +27,7 @@ function RouterDom() {
         pauseOnHover
       />
       <div className="main_panel">
-        {role && <Sidebar />}
+        {role && <Sidebar role={role} />}
         <div className="panel_body">
           {role && <Navbar />}
           <Routes>

@@ -1,15 +1,19 @@
 import React from "react";
 import "./Navbar.css";
-import { BiBell } from "react-icons/bi";
+import { BiBell, BiSearch } from "react-icons/bi";
 
 function Navbar() {
   return (
     <>
       <div className="navbar_panel">
-        <div className="navbar_search">
-          <input type="text" />
-        </div>
-        <div>
+        <form className="navbar_search">
+          <label htmlFor="search">
+            <BiSearch />
+          </label>
+          <input id="search" type="text" placeholder="Qidiruv" />
+          <button>Search</button>
+        </form>
+        <div className="navbar_content">
           <span className="notification">
             <BiBell />
           </span>
