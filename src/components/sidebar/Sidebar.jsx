@@ -1,7 +1,8 @@
 import React from "react";
 import "./Sidebar.css";
 import { FiSun } from "react-icons/fi";
-import { BsMoonStars } from "react-icons/bs";
+import { BsMoonStars, BsTelegram, BsYoutube } from "react-icons/bs";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 function Sidebar() {
   return (
@@ -26,14 +27,16 @@ function Sidebar() {
           <li>Dashboard</li>
           <li>Dashboard</li>
         </ul>
-        <div className="panel_darkMode">
+        <div className="panel_social">
           <span>
-            <FiSun />
+            <FaInstagram />
           </span>
           <span>
-            <BsMoonStars />
+            <BsTelegram />
           </span>
-          <h1>Light</h1>
+          <span>
+            <BsYoutube />
+          </span>
         </div>
       </div>
     </>

@@ -3,19 +3,22 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6.5px 0px;
+  padding: 20px 20px;
 }
 
 .navbar_user-panel {
-  border: 1px solid red;
+  border: 1px solid var(--color-white-FFF-blur);
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 4px;
+  gap: 10px;
+  border-radius: 100px;
+  cursor: pointer;
 }
 
 .user-img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -25,6 +28,15 @@
   height: 100%;
 }
 
+.navbar_user-panel h2 {
+  font-size: var(--font-size-16);
+  color: var(--color-white-FFF);
+  padding-right: 12px;
+  line-height: 20px;
+}
+
 .navbar_user-panel h2 span {
   display: block;
+  font-size: var(--font-size-14);
+  color: var(--color-white-FFF-blur);
 }
