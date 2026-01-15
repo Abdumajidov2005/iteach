@@ -34,6 +34,8 @@
   --color-blueD-main-blur: #0808206e;
 }
 
+  /* background-color: #121235;  ko'k rang*/ 
+
 body {
   background-color: var(--color-blueD-main);
 }
