@@ -2,104 +2,142 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { users } from "../../services/data";
 import { FaLock, FaRegEye, FaRegEyeSlash, FaUserAlt } from "react-icons/fa";
+import { ROLES } from "../../services/data";
 
-function Login({ role, setRole }) {
-  const [login, setLogin] = useState("");
+function Login({ setRole, setUser }) {
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [watchPassword, setWatchPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    const user = users.find(
-      (event) => event.username === login && event.password === password
-    );
+  const handleLogin = async () => {
+    setLoading(true);
+    try {
+      // 🔹 x-www-form-urlencoded format
+      const data = new URLSearchParams();
+      data.append("grant_type", "password");
+      data.append("username", username);
+      data.append("password", password);
+      data.append("scope", "");
+      data.append("client_id", username); // backenddan olingan
+      data.append("client_secret", username); // backenddan olingan
 
-    if (!user) {
-      toast.error("Login yoki parol xato");
-      return;
-    } else {
-      toast.success("Hush kelibsiz");
+      const response = await fetch(
+        "https://iteach-erp-1.onrender.com/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: data,
+        }
+      );
+
+      const result = await response.json();
+      console.log("Server javobi:", result);
+
+      if (!response.ok) {
+        toast.error(
+          result.error_description || result.message || "Login yoki parol xato"
+        );
+        return;
+      }
+
+      const accessToken = result.access_token;
+      if (!accessToken) {
+        toast.error("Token olinmadi!");
+        return;
+      }
+
+      // 🔹 Tokenni saqlash
+      localStorage.setItem("token", accessToken);
+
+      // 🔹 User va role
+      const userData = result.user || {
+        fullName: username,
+        role: ROLES.student,
+      };
+      setUser(userData);
+      setRole(userData.role);
+
+      localStorage.setItem("role", userData.role);
+      localStorage.setItem("user", JSON.stringify(userData));
+
+      toast.success("Hush kelibsiz!");
+
+      // 🔹 Role-based navigation
+      if (userData.role === ROLES.admin || userData.role === ROLES.manager) {
+        navigate("/admin/dashboard", { replace: true });
+      } else if (userData.role === ROLES.teacher) {
+        navigate("/teacher/dashboard", { replace: true });
+      } else if (userData.role === ROLES.student) {
+        navigate("/student/dashboard", { replace: true });
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Xatolik yuz berdi");
+    } finally {
+      setLoading(false);
     }
-
-    setRole(user.role);
   };
 
-  // 🔥 MANA SHU YER
-  useEffect(() => {
-    if (!role) return;
-
-    if (role === "admin" || role === "manager") {
-      navigate("/", { replace: true });
-    }
-
-    if (role === "teacher") {
-      navigate("/teacher/dashboard", { replace: true });
-    }
-
-    if (role === "student") {
-      navigate("/student/dashboard", { replace: true });
-    }
-  }, [role, navigate]);
-
   return (
-    <>
-      <div className="pages_bg">
-        <div className="pages_login displays">
-          <div className="pages_login-picture">
-            <img src="/imgs/logo iteach 1.png" alt="" />
-          </div>
-          <form
-            className="pages_login-forms"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleLogin();
-            }}
-          >
-            <h1>Tizimga kirish</h1>
-            <div className="login-forms_toFill">
-              <label htmlFor="logins">Loginni kiriting:</label>
-              <div className="form_inputs">
-                <span className="login-forms_toFill_locking displays_center">
-                  <FaUserAlt />
-                </span>
-                <input
-                  value={login}
-                  onChange={(e) => setLogin(e.target.value)}
-                  placeholder="Login..."
-                  id="logins"
-                />
-              </div>
-            </div>
-            <div className="login-forms_toFill">
-              <label htmlFor="passwords">Parolni kiriting:</label>
-              <div className="form_inputs">
-                <span className="login-forms_toFill_locking displays_center">
-                  <FaLock />
-                </span>
-                <input
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Parol..."
-                  id="passwords"
-                  type={watchPassword ? "text" : "password"}
-                />
-                <span
-                  className="form_inputs-eyes displays_center"
-                  onClick={() => {
-                    setWatchPassword((prev) => !prev);
-                  }}
-                >
-                  {watchPassword ? <FaRegEye /> : <FaRegEyeSlash />}
-                </span>
-              </div>
-            </div>
-            <button>Sign in</button>
-          </form>
+    <div className="pages_bg">
+      <div className="pages_login displays">
+        <div className="pages_login-picture">
+          <img src="/imgs/logo iteach 1.png" alt="Logo" />
         </div>
+        <form
+          className="pages_login-forms"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleLogin();
+          }}
+        >
+          <h1>Tizimga kirish</h1>
+          <div className="login-forms_toFill">
+            <label htmlFor="logins">Loginni kiriting:</label>
+            <div className="form_inputs">
+              <span className="login-forms_toFill_locking displays_center">
+                <FaUserAlt />
+              </span>
+              <input
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Login..."
+                id="logins"
+              />
+            </div>
+          </div>
+
+          <div className="login-forms_toFill">
+            <label htmlFor="passwords">Parolni kiriting:</label>
+            <div className="form_inputs">
+              <span className="login-forms_toFill_locking displays_center">
+                <FaLock />
+              </span>
+              <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Parol..."
+                id="passwords"
+                type={watchPassword ? "text" : "password"}
+              />
+              <span
+                className="form_inputs-eyes displays_center"
+                onClick={() => setWatchPassword((prev) => !prev)}
+              >
+                {watchPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+              </span>
+            </div>
+          </div>
+
+          <button type="submit" disabled={loading}>
+            {loading ? "Kirish..." : "Sign in"}
+          </button>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 

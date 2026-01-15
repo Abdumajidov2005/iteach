@@ -31,7 +31,7 @@
   --color-white-FFF-blur: rgba(255, 255, 255, 0.285);
   --color-white-FA: #f5f3f5;
   --color-blueD-main: #080820;
-  --color-blueD-main-blur: #080820eb;
+  --color-blueD-main-blur: #0808206e;
 }
 
 body {
@@ -67,7 +67,7 @@ ul {
 
 /* Scrollbar umumiy o'lchami */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 /* Scroll track */
