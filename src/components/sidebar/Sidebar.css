@@ -7,6 +7,7 @@
 }
 
 .panel_sidebar .sidebar_logo {
+  display: block;
   width: 100%;
   height: 76px;
   margin: 17px 0px;

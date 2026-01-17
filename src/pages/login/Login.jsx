@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaLock, FaRegEye, FaRegEyeSlash, FaUserAlt } from "react-icons/fa";
 import { ROLES } from "../../services/data";
+import { baseUrl } from "../../services/config";
+import { jwtDecode } from "jwt-decode";
 
 function Login({ setRole, setUser }) {
   const [username, setUsername] = useState("");
@@ -24,14 +26,11 @@ function Login({ setRole, setUser }) {
       data.append("client_id", username); // backenddan olingan
       data.append("client_secret", username); // backenddan olingan
 
-      const response = await fetch(
-        "https://iteach-erp-1.onrender.com/auth/login",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: data,
-        }
-      );
+      const response = await fetch(`${baseUrl}/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: data,
+      });
 
       const result = await response.json();
       console.log("Server javobi:", result);
@@ -53,9 +52,11 @@ function Login({ setRole, setUser }) {
       localStorage.setItem("token", accessToken);
 
       // 🔹 User va role
-      const userData = result.user || {
-        fullName: username,
-        role: ROLES.student,
+      const decoded = jwtDecode(result.access_token);
+
+      const userData = {
+        fullName: decoded.fullName || decoded.sub || username,
+        role: decoded.role,
       };
       setUser(userData);
       setRole(userData.role);

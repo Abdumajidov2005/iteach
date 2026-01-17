@@ -13,7 +13,7 @@
   top: 80px;
   right: 10px;
   width: 300px;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 15px 10px;
   transform: scale(0) translateY(-20px);
   backdrop-filter: blur(2px);
@@ -64,8 +64,8 @@
 
 .modal_title .exit_modal {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 6px;
+  right: 6px;
   width: 27px;
   height: 27px;
   border-radius: 5px;
@@ -76,7 +76,17 @@
   justify-content: center;
   cursor: pointer;
   font-size: 20px;
+  transition: all .5s cubic-bezier(0.75, 0.82, 0.165, 1);
 }
+
+.modal_title .exit_modal:hover {
+  transform: translateY(-2px);
+}
+
+.modal_title .exit_modal:active {
+  transform: translateY(0px);
+}
+
 
 .modal_content {
   display: flex;
@@ -151,7 +161,7 @@
   padding: 9px 25px;
   border-radius: 100px;
   border: none;
-  background-color: var(--color-white-FFF-blur);
+  background-color: #00985B;
   font-size: var(--font-size-14);
   letter-spacing: 1px;
   font-weight: var(--font-weight-500);
@@ -210,6 +220,6 @@
 
 .navbar_user-panel h2 span {
   display: block;
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-12);
   color: var(--color-white-FFF-blur);
 }

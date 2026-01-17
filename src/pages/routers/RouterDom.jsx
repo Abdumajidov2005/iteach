@@ -63,7 +63,7 @@ function RouterDom() {
               element={
                 <ProtectedRoute
                   role={role}
-                  allow={[ROLES.admin, ROLES.manager, ROLES.student]}
+                  allow={[ROLES.admin, ROLES.manager]}
                 >
                   <Dashboard />
                 </ProtectedRoute>

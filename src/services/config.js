@@ -1,0 +1,1 @@
+export const baseUrl = "https://iteach-erp-1.onrender.com"

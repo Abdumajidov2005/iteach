@@ -14,6 +14,16 @@ export const renderData = (role) => {
           icon: BiSolidDashboard,
         },
         {
+          title: "Courses",
+          path: "/courses",
+          icon: LuFolderCode,
+        },
+        {
+          title: "Groups",
+          path: "/groups",
+          icon: FaLayerGroup,
+        },
+        {
           title: "Leaderboard",
           path: "/leaderboard",
           icon: MdLeaderboard,
@@ -34,16 +44,7 @@ export const renderData = (role) => {
           path: "/",
           icon: BiSolidDashboard,
         },
-        {
-          title: "Courses",
-          path: "/courses",
-          icon: LuFolderCode,
-        },
-        {
-          title: "Groups",
-          path: "/groups",
-          icon: FaLayerGroup,
-        },
+
         {
           title: "Leaderboard",
           path: "/leaderboard",

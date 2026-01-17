@@ -12,6 +12,7 @@
 
 :root {
   /* size */
+  --font-size-12: 12px;
   --font-size-14: 14px;
   --font-size-16: 16px;
   --font-size-18: 18px;
@@ -34,7 +35,7 @@
   --color-blueD-main-blur: #0808206e;
 }
 
-  /* background-color: #121235;  ko'k rang*/ 
+/* background-color: #121235;  ko'k rang*/
 
 body {
   background-color: var(--color-blueD-main);

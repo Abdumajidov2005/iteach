@@ -3,16 +3,16 @@ import "./Sidebar.css";
 import { BsTelegram, BsYoutube } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import { renderData } from "../../services/webpages";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Sidebar({ role }) {
   const normalizedRole = role?.trim().toLowerCase();
 
   return (
     <div className="panel_sidebar">
-      <div className="sidebar_logo">
+      <Link to={"/"} className="sidebar_logo">
         <img src="imgs/logo iteach 1.png" alt="Logo" />
-      </div>
+      </Link>
 
       <div className="panel_links">
         {renderData(normalizedRole)?.map((item, index) => {
