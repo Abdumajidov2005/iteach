@@ -2,7 +2,7 @@ import { BiSolidDashboard } from "react-icons/bi";
 import { MdLeaderboard } from "react-icons/md";
 import { ROLES } from "./data";
 import { LuFolderCode } from "react-icons/lu";
-import { FaLayerGroup } from "react-icons/fa6";
+import { FaLayerGroup, FaUserPlus } from "react-icons/fa6";
 
 export const renderData = (role) => {
   switch (role) {
@@ -14,10 +14,16 @@ export const renderData = (role) => {
           icon: BiSolidDashboard,
         },
         {
+          title: "Users",
+          path: "/users-add",
+          icon: FaUserPlus,
+        },
+        {
           title: "Courses",
           path: "/courses",
           icon: LuFolderCode,
         },
+
         {
           title: "Groups",
           path: "/groups",

@@ -52,10 +52,14 @@ function Login({ setRole, setUser }) {
       localStorage.setItem("token", accessToken);
 
       // 🔹 User va role
+      console.log(result);
+
       const decoded = jwtDecode(result.access_token);
 
+      console.log(decoded);
+
       const userData = {
-        fullName: decoded.fullName || decoded.sub || username,
+        fullName: decoded.login || username,
         role: decoded.role,
       };
       setUser(userData);

@@ -7,6 +7,9 @@ import { IoExitOutline } from "react-icons/io5";
 import { FaUserEdit } from "react-icons/fa";
 
 function Navbar({ role, setRole, user }) {
+
+  console.log(user);
+  
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
 
@@ -41,7 +44,7 @@ function Navbar({ role, setRole, user }) {
         <label htmlFor="search">
           <BiSearch />
         </label>
-        <input id="search" type="text" placeholder="Qidiruv" />
+        <input id="search" type="text" placeholder="Search..." />
         <button>Search</button>
       </form>
 

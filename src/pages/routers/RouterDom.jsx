@@ -10,6 +10,7 @@ import { ROLES } from "../../services/data";
 import { ToastContainer } from "react-toastify";
 import Courses from "../courses/Courses";
 import Groups from "../groups/Groups";
+import Users from "../users/Users";
 
 function RouterDom() {
   const [role, setRole] = useState(null);
@@ -71,7 +72,7 @@ function RouterDom() {
             />
 
             <Route
-              path="/leaderboard"
+              path="/users-add"
               element={
                 <ProtectedRoute
                   role={role}
@@ -82,10 +83,11 @@ function RouterDom() {
                     ROLES.student,
                   ]}
                 >
-                  <Leaderboard />
+                  <Users />
                 </ProtectedRoute>
               }
             />
+
             <Route
               path="/courses"
               element={
@@ -102,6 +104,7 @@ function RouterDom() {
                 </ProtectedRoute>
               }
             />
+
             <Route
               path="/groups"
               element={
@@ -115,6 +118,22 @@ function RouterDom() {
                   ]}
                 >
                   <Groups />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/leaderboard"
+              element={
+                <ProtectedRoute
+                  role={role}
+                  allow={[
+                    ROLES.admin,
+                    ROLES.manager,
+                    ROLES.teacher,
+                    ROLES.student,
+                  ]}
+                >
+                  <Leaderboard />
                 </ProtectedRoute>
               }
             />
