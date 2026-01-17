@@ -75,12 +75,12 @@ ul {
 
 /* Scroll track */
 ::-webkit-scrollbar-track {
-  background: #475569;
+  background: #080820;
 }
 
 /* Scroll thumb */
 ::-webkit-scrollbar-thumb {
-  background: #080820;
+  background: #0808206e;
 }
 
 ::-webkit-scrollbar-thumb:hover {

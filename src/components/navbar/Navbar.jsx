@@ -7,9 +7,8 @@ import { IoExitOutline } from "react-icons/io5";
 import { FaUserEdit } from "react-icons/fa";
 
 function Navbar({ role, setRole, user }) {
-
   console.log(user);
-  
+
   const [openModal, setOpenModal] = useState(false);
   const navigate = useNavigate();
 
@@ -80,12 +79,10 @@ function Navbar({ role, setRole, user }) {
           </div>
 
           <div className="modal_content">
-            {(role === "admin" || role === "manager") && (
-              <Link>
-                <FaUserEdit />
-                Accauntni tahrirlash
-              </Link>
-            )}
+            <Link>
+              <FaUserEdit />
+              Accauntni tahrirlash
+            </Link>
             <Link onClick={logOutAcc}>
               <IoExitOutline />
               Accauntdan chiqish
